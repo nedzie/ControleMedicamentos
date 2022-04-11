@@ -106,26 +106,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             return true;
         }
 
-        public bool VisualizarRegistrosDiferentao(string tipoVisualizacao)
-        {
-            if (tipoVisualizacao == "Tela")
-                MostrarTitulo("Visualização de Requisicoes");
-
-            List<Requisicao> Requisicoes = _repositorioRequisicao.SelecionarTodos();
-
-            if (Requisicoes.Count == 0)
-            {
-                _notificador.ApresentarMensagem("Nenhum medicamento disponível.", TipoMensagem.Atencao);
-                return false;
-            }
-
-            foreach (Requisicao Requisicao in Requisicoes)
-                Console.WriteLine(Requisicao.ToString());
-
-            Console.ReadLine();
-
-            return true;
-        }
+        
 
         private Requisicao ObterRequisicao()
         {

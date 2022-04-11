@@ -51,11 +51,19 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
         public List<Medicamento> SelecionarEmFalta()
         {
             List<Medicamento> medicamentosEmFalta = new List<Medicamento>();
-            foreach (Medicamento medicamentos in registros)
+            foreach (Medicamento medicamento in registros)
             {
-                medicamentosEmFalta.Add(medicamentos);
+                if(medicamento.Quantidade <= 0)
+                    medicamentosEmFalta.Add(medicamento);
             }
             return medicamentosEmFalta;
+        }
+
+        public List<Medicamento> SelecionarMaisRequisitados()
+        {
+            List<Medicamento> medicamentosMaisRequisitados = new List<Medicamento>();
+            
+            return medicamentosMaisRequisitados;
         }
     }
 }

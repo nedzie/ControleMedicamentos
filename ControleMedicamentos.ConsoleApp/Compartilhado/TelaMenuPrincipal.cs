@@ -16,13 +16,13 @@ namespace ControleMedicamentos.ConsoleApp.Compartilhado
         private TelaCadastroFornecedor telaCadastroFornecedor;
 
         private RepositorioMedicamento repositorioMedicamento;
-        private TelaCadastroMedicamento telaCadastroMedicamento;
+        private ModuloMedicamento.TelaCadastroMedicamento telaCadastroMedicamento;
 
         private RepositorioPaciente repositorioPaciente;
         private TelaCadastroPaciente telaCadastroPaciente;
 
         private RepositorioRequisicao repositorioRequisicao;
-        private TelaCadastroRequisicao telaCadastroRequisicao;
+        private ModuloRequisicao.TelaCadastroRequisicao telaCadastroRequisicao;
 
         public TelaMenuPrincipal(Notificador notificador)
         {
@@ -39,7 +39,7 @@ namespace ControleMedicamentos.ConsoleApp.Compartilhado
             telaCadastroPaciente = new(repositorioPaciente, notificador);
 
             repositorioRequisicao = new RepositorioRequisicao();
-            telaCadastroRequisicao = new TelaCadastroRequisicao(repositorioRequisicao, repositorioPaciente, repositorioMedicamento, telaCadastroPaciente, telaCadastroMedicamento, notificador);
+            telaCadastroRequisicao = new ModuloRequisicao.TelaCadastroRequisicao(repositorioRequisicao, repositorioPaciente, repositorioMedicamento, telaCadastroPaciente, telaCadastroMedicamento, notificador);
         }
 
         public string MostrarOpcoes()

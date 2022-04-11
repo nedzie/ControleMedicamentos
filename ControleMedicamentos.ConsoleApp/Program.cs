@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
 using System;
 
@@ -38,13 +39,14 @@ namespace ControleMedicamentos.ConsoleApp
 
                     else if (opcaoSelecionada == "5")
                     {
-                        TelaCadastroRequisicao telaReq = (TelaCadastroRequisicao)telaCadastravel;
-
-                        telaReq.VisualizarRegistrosDiferentao();
-                    
-                    }    
-
-
+                        TelaCadastroMedicamento telaMedicamentos = (TelaCadastroMedicamento)telaCadastravel;
+                        telaMedicamentos.VisualizarRegistrosEmFalta("Tela");
+                    }
+                    else if (opcaoSelecionada == "6")
+                    {
+                        TelaCadastroMedicamento telaMedicamentos = (TelaCadastroMedicamento)telaCadastravel;
+                        telaMedicamentos.VisualizarMedicamentosMaisSolicitados();
+                    }
                 }
             }
         }

@@ -109,12 +109,30 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             return true;
         }
 
-        public bool VisualizarEmFalta(string tipoVisualizacao)
+        public bool VisualizarRegistrosEmFalta(string tipoVisualizacao)
         {
             if (tipoVisualizacao == "Tela")
-                MostrarTitulo("Visualização de Medicamentos");
+                MostrarTitulo("Visualização de Requisicoes");
 
             List<Medicamento> Medicamentos = _repositorioMedicamento.SelecionarEmFalta();
+
+            if (Medicamentos.Count == 0)
+            {
+                _notificador.ApresentarMensagem("Nenhum medicamento disponível.", TipoMensagem.Atencao);
+                return false;
+            }
+
+            foreach (Medicamento Medicamento in Medicamentos)
+                Console.WriteLine(Medicamento.ToString());
+
+            Console.ReadLine();
+
+            return true;
+        }
+
+        public bool VisualizarMedicamentosMaisSolicitados()
+        {
+            List<Medicamento> Medicamentos = _repositorioMedicamento.SelecionarMaisRequisitados();
 
             if (Medicamentos.Count == 0)
             {
